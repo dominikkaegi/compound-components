@@ -7,6 +7,7 @@ import { Tabs, TabList, Tab, TabPanels, TabPanel } from "./Tabs";
 export default function Page() {
   return (
     <div style={{ maxWidth: "300px" }}>
+      <h1>Compound Tabs</h1>
       <Tabs>
         <TabList>
           <Tab>Login</Tab>

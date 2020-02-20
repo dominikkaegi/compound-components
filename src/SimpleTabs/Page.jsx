@@ -18,6 +18,7 @@ export default function Page() {
 
   return (
     <div style={{ maxWidth: "300px" }}>
+      <h1>Simple Tabs</h1>
       <Tabs data={tabData} />
     </div>
   );
