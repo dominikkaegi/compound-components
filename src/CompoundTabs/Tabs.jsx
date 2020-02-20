@@ -11,7 +11,7 @@ export function Tabs({ children }) {
 const TabContext = createContext();
 
 export function TabList({ children }) {
-  return <div className="tab-list"></div>;
+  return <div className="tab-list">{children}</div>;
 }
 
 export function Tab({ children }) {
