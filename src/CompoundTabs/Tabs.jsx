@@ -25,24 +25,3 @@ export function TabPanels({ children }) {
 export function TabPanel({ children }) {
   return children;
 }
-
-export default function Page() {
-  return (
-    <div>
-      <Tabs>
-        <TabList>
-          <Tab>Login</Tab>
-          <Tab>Logout</Tab>
-        </TabList>
-        <TabPanels>
-          <TabPanel>
-            <LoginForm />
-          </TabPanel>
-          <TabPanel>
-            <SignupForm />
-          </TabPanel>
-        </TabPanels>
-      </Tabs>
-    </div>
-  );
-}
