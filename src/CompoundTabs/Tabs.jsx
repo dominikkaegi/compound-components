@@ -1,40 +1,25 @@
 import React, { createContext, useState, useContext, Children } from "react";
+import LoginForm from "../Components/LoginForm";
+import SignupForm from "../Components/SignupForm";
 
 const TabsContext = createContext();
 
 export function Tabs({ children }) {
-  const [activeIndex, setActiveIndex] = useState(0);
-  return (
-    <TabsContext.Provider value={{ activeIndex, setActiveIndex }}>
-      <div className="tabs">{children}</div>
-    </TabsContext.Provider>
-  );
+  return <div className="tabs"></div>;
 }
 
 const TabContext = createContext();
 
 export function TabList({ children }) {
-  const wrappedChildren = Children.map(children, (child, index) => {
-    return <TabContext.Provider value={index}>{child}</TabContext.Provider>;
-  });
-  return <div className="tab-list">{wrappedChildren}</div>;
+  return <div className="tab-list"></div>;
 }
 
 export function Tab({ children }) {
-  const index = useContext(TabContext);
-  const { activeIndex, setActiveIndex } = useContext(TabsContext);
-  const isActive = index === activeIndex;
-  const className = "tab" + (isActive ? " tab-active" : " ");
-  return (
-    <div className={className} onClick={() => setActiveIndex(index)}>
-      {children}
-    </div>
-  );
+  return <div className={"tab tab-active"}>{children}</div>;
 }
 
 export function TabPanels({ children }) {
-  const { activeIndex } = useContext(TabsContext);
-  return <div className="tab-panels">{children[activeIndex]}</div>;
+  return <div className="tab-panels">{children}</div>;
 }
 
 export function TabPanel({ children }) {
@@ -50,8 +35,12 @@ export default function Page() {
           <Tab>Logout</Tab>
         </TabList>
         <TabPanels>
-          <TabPanel>Login Panel</TabPanel>
-          <TabPanel>Signup Panel</TabPanel>
+          <TabPanel>
+            <LoginForm />
+          </TabPanel>
+          <TabPanel>
+            <SignupForm />
+          </TabPanel>
         </TabPanels>
       </Tabs>
     </div>
